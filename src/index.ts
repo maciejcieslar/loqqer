@@ -26,7 +26,7 @@ const logger = createLogger({
     }),
     new transports.file({
       level: 'info',
-      path: path.join(__dirname, '../hey.txt'),
+      path: path.join(__dirname, '../important.log'),
       template: createTemplate(
         format.level(),
         format.text(' :gift:'),
@@ -40,7 +40,7 @@ const logger = createLogger({
     }),
     new transports.file({
       level: 'info',
-      path: path.join(__dirname, '../heyyya.txt'),
+      path: path.join(__dirname, '../not-so-important.log'),
       template: createTemplate(
         format.level(),
         format.text(' :tada:'),
