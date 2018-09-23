@@ -39,7 +39,7 @@ const createLogger = (unsafeConfig?: Config) => {
           level,
           message: content,
           date: new Date(),
-          location: getLocation(new Error('Log stack'), 3),
+          location: getLocation(4),
         });
 
         return transport.log({ level, message });

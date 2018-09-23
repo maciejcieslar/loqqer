@@ -1,12 +1,5 @@
-const getLocation = (error: Error = null, stepInStack: number = 0) => {
-  let step = stepInStack;
-
+const getLocation = (stepInStack: number = 1) => {
   try {
-    if (error) {
-      throw error;
-    }
-
-    step = 1;
     throw new Error('Log stack');
   } catch (e) {
     try {
@@ -16,7 +9,7 @@ const getLocation = (error: Error = null, stepInStack: number = 0) => {
         .map((m) => m.trim())
         .filter((m) => m.startsWith('at'));
 
-      return String(stackLocations[step]).slice(3);
+      return String(stackLocations[stepInStack]).slice(3);
     } catch (e) {
       return '';
     }
