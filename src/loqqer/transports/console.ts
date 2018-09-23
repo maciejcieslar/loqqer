@@ -49,7 +49,7 @@ class ConsoleTransport extends Transport<Config> {
 
   public format(value: any): string {
     if (_.isObject(value)) {
-      return inspect(value, false, 3, true);
+      return inspect(value, false, 2, true);
     }
 
     return String(value);
