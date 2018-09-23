@@ -16,7 +16,7 @@ const format = {
   location: (): Formatter => ({ location }) => location,
   message: (): Formatter => ({ message }) => message,
   text: (message: string): Formatter => () => emoji.emojify(message),
-  level: (): Formatter => ({ level }) => level,
+  level: (): Formatter => ({ level }) => level.toUpperCase(),
   newLine: (): Formatter => () => '\n',
 };
 

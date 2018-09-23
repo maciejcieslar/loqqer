@@ -8,32 +8,54 @@ import path from 'path';
 import { createLogger, transports, createTemplate, format } from 'src/loqqer';
 
 const logger = createLogger({
-  level: 'debug',
+  level: 'info',
   transports: [
     new transports.console({
       level: 'debug',
       colorize: true,
       template: createTemplate(
         format.level(),
-        format.text(':fire: :heart: :fire:'),
+        format.text(' :gift:'),
         format.newLine(),
         format.message(),
         format.newLine(),
+        format.text('Logged from '),
         format.location(),
+        format.text(' :tada:'),
       ),
     }),
     new transports.file({
-      path: path.join(__dirname, '../hey.txt'),
       level: 'info',
+      path: path.join(__dirname, '../hey.txt'),
+      template: createTemplate(
+        format.level(),
+        format.text(' :gift:'),
+        format.newLine(),
+        format.message(),
+        format.newLine(),
+        format.text('Logged from '),
+        format.location(),
+        format.text(' :tada:'),
+      ),
     }),
     new transports.file({
-      path: path.join(__dirname, '../heyyya.txt'),
       level: 'info',
+      path: path.join(__dirname, '../heyyya.txt'),
+      template: createTemplate(
+        format.level(),
+        format.text(' :tada:'),
+        format.newLine(),
+        format.message(),
+        format.newLine(),
+        format.text('Logged from '),
+        format.location(),
+        format.text(' :tada:'),
+      ),
     }),
   ],
 });
 
-const bigObject = [
+const collection = [
   {
     _id: '5ba7840f298023585dfd4b7c',
     index: 0,
@@ -114,51 +136,11 @@ const bigObject = [
     greeting: 'Hello, Robbie! You have 8 unread messages.',
     favoriteFruit: 'apple',
   },
-  {
-    _id: '5ba7840ff24f0f42a1e4bf5d',
-    index: 2,
-    guid: 'b30809e3-00fb-4c83-a511-20d76377d32f',
-    isActive: true,
-    balance: '$1,562.38',
-    picture: 'http://placehold.it/32x32',
-    age: 20,
-    eyeColor: 'green',
-    name: {
-      first: 'Oneal',
-      last: 'Mills',
-    },
-    company: 'BUNGA',
-    email: 'oneal.mills@bunga.com',
-    phone: '+1 (928) 469-3397',
-    address: '667 Kings Place, Highland, Washington, 7345',
-    about: 'Veniam aliqua eu qui culpa nisi anim qui veniam ex enim.',
-    registered: 'Thursday, December 24, 2015 8:50 AM',
-    latitude: '-51.350744',
-    longitude: '-110.709116',
-    tags: ['aliquip', 'ullamco', 'occaecat', 'ullamco', 'anim'],
-    range: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    friends: [
-      {
-        id: 0,
-        name: 'George Ellison',
-      },
-      {
-        id: 1,
-        name: 'Lacey Hood',
-      },
-      {
-        id: 2,
-        name: 'Hill Clarke',
-      },
-    ],
-    greeting: 'Hello, Oneal! You have 6 unread messages.',
-    favoriteFruit: 'strawberry',
-  },
 ];
 
-function test() {
-  logger.info`heeey ${{ lmao: 5 }} two ${bigObject}`;
-  logger.error`nope, not going to happen ${bigObject}`;
+function log() {
+  logger.info`heeey, this is my collection: ${collection}`;
+  logger.debug`nope, not going to happen ${collection}`;
 }
 
-test();
+log();

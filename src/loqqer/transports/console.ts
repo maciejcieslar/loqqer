@@ -49,7 +49,7 @@ class ConsoleTransport extends Transport<Config> {
 
   public format(value: any): string {
     if (_.isObject(value)) {
-      return inspect(value, false, 2, true);
+      return `\n${inspect(value, false, 2, true)}\n`;
     }
 
     return String(value);
@@ -75,7 +75,7 @@ class ConsoleTransport extends Transport<Config> {
       msg = colors[lowerCaseLevel](message);
     }
 
-    logToConsole(`\n${msg}\n`);
+    logToConsole(`${msg}\n`);
 
     return msg;
   }

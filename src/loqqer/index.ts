@@ -60,4 +60,4 @@ const createLogger = (unsafeConfig?: Config) => {
   };
 };
 
-export { createLogger, transports, createTemplate, format };
+export { createLogger, transports, createTemplate, format, Transport };

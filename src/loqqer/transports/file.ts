@@ -39,14 +39,14 @@ class FileTransport extends Transport<Config> {
 
   public format(value: any): string {
     if (_.isObject(value)) {
-      return inspect(value, false, null, false);
+      return `\n${inspect(value, false, null, false)}\n`;
     }
 
     return String(value);
   }
 
   public log({ message, level }: { message: string; level: string }) {
-    this.fileStream.write(`\n${message}\n`);
+    this.fileStream.write(`${message}\n`);
 
     return message;
   }
