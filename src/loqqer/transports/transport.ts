@@ -10,6 +10,7 @@ export interface TransportConfig {
 const defaultConfig: Partial<TransportConfig> = {
   template: ({ message }) => message,
   format: JSON.stringify,
+  level: 'info',
 };
 
 class Transport<T extends TransportConfig = TransportConfig> {
