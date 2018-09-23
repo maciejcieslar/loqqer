@@ -7,7 +7,7 @@ export interface TransportConfig {
   template?: (info: Info) => string;
 }
 
-const defaultConfig = {
+const defaultConfig: Partial<TransportConfig> = {
   template: ({ message }) => message,
   format: JSON.stringify,
 };
