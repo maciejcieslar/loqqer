@@ -2,7 +2,6 @@ import colors from 'colors/safe';
 import _ from 'lodash';
 import { inspect } from 'util';
 
-import { Level } from 'src/loqqer/levels';
 import { createTemplate, format } from 'src/loqqer/format';
 
 import Transport, { TransportConfig } from './transport';
@@ -19,7 +18,6 @@ colors.setTheme({
 });
 
 interface Config extends TransportConfig {
-  level?: Level;
   colorize?: boolean;
 }
 

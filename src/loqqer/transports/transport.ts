@@ -1,7 +1,7 @@
 import { Info } from 'src/loqqer/format';
 import { isAllowed, Level } from 'src/loqqer/levels';
 
-export interface TransportConfig {
+interface TransportConfig {
   format?: (value: any) => string;
   level?: Level;
   template?: (info: Info) => string;
@@ -35,6 +35,10 @@ class Transport<T extends TransportConfig = TransportConfig> {
   public getMessage(info: Info): string {
     return this.config.template(info);
   }
+}
+
+export {
+  TransportConfig,
 }
 
 export default Transport;

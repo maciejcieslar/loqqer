@@ -2,20 +2,16 @@ import fs from 'fs-extra-promise';
 import _ from 'lodash';
 import { inspect } from 'util';
 
-import { Level } from 'src/loqqer/levels';
 import { createTemplate, format } from 'src/loqqer/format';
 
 import Transport, { TransportConfig } from './transport';
 
 interface Config extends TransportConfig {
-  level?: Level;
   path: string;
-  colorize?: boolean;
 }
 
 const defaultConfig: Partial<Config> = {
   level: 'info',
-  colorize: true,
   template: createTemplate(
     format.level(),
     format.text(' - '),

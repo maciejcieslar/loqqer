@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import transports, { Transport } from './transports';
+import transports, { Transport, TransportConfig } from './transports';
 import { isAllowed, Level } from './levels';
 import { getLocation } from './location';
 import { createTemplate, format } from './format';
@@ -60,4 +60,11 @@ const createLogger = (unsafeConfig?: Config) => {
   };
 };
 
-export { createLogger, transports, createTemplate, format, Transport };
+export {
+  createLogger,
+  transports,
+  createTemplate,
+  format,
+  Transport,
+  TransportConfig,
+};
