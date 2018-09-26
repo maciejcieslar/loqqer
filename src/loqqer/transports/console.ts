@@ -28,7 +28,6 @@ const defaultConfig: Partial<Config> = {
     format.level(),
     format.text(' - '),
     format.date('DD/MM/YYYY'),
-    format.text('lmao'),
     format.newLine(),
     format.location(),
     format.newLine(),
