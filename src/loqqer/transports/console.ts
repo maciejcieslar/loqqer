@@ -65,11 +65,10 @@ class ConsoleTransport extends Transport<Config> {
   public log({ message, level }: { message: string; level: string }) {
     let msg = message;
 
-    const lowerCaseLevel = level.toLowerCase();
-    const logToConsole = this.getConsoleMethod(lowerCaseLevel);
+    const logToConsole = this.getConsoleMethod(level);
 
     if (this.config.colorize) {
-      msg = colors[lowerCaseLevel](message);
+      msg = colors[level](message);
     }
 
     logToConsole(`${msg}\n`);
